@@ -9,8 +9,8 @@ function checkAndOpenNewPageOnce() {
 
     if (
       taskHeader &&
-      taskHeader.textContent !==
-        "No tasks are currently available.  Please try again later."
+      taskHeader.textContent.trim() !==
+        "No tasks are currently available. Please try again later."
     ) {
       // Відкрити нову сторінку
       window.open("https://play.tavr.media/radioroks/", "_blank");
@@ -18,16 +18,14 @@ function checkAndOpenNewPageOnce() {
   }
 }
 
+// Викликати функцію checkAndOpenNewPageOnce() при завантаженні сторінки
 window.onload = function () {
-  if (
-    window.location.href ===
-    "https://www.raterhub.com/evaluation/rater/task/index"
-  ) {
-    checkAndOpenNewPageOnce();
+  checkAndOpenNewPageOnce();
 
-    // Перезавантажити сторінку кожні 9 секунд
-    setInterval(function () {
-      window.location.reload();
-    }, 9000);
-  }
+  // Встановити періодичний виклик функції перезавантаження сторінки
+  setInterval(function () {
+    // Змінити URL-адресу сторінки, щоб змусити перезавантаження
+
+    window.location.href = window.location.href;
+  }, 9000);
 };
