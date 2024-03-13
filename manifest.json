@@ -5,12 +5,14 @@
   "description": "Опис вашого розширення",
   "permissions": ["activeTab", "storage"],
   "background": {
-    "scripts": ["content.js"],
-    "persistent": false
+    "service_worker": "background.js"
   },
   "content_scripts": [
     {
-      "matches": ["https://www.raterhub.com/evaluation/rater"],
+      "matches": [
+        "https://www.raterhub.com/evaluation/rater",
+        "https://www.raterhub.com/evaluation/rater/task/index"
+      ],
       "js": ["content.js"]
     }
   ],

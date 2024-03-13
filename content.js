@@ -2,15 +2,16 @@
 function checkAndOpenNewPageOnce() {
   if (
     window.location.href ===
-    "https://www.raterhub.com/evaluation/rater/task/index"
+      "https://www.raterhub.com/evaluation/rater/task/index" ||
+    window.location.href === "https://www.raterhub.com/evaluation/rater/task"
   ) {
     // Отримати елемент з класом "ewok-rater-task-header"
     const taskHeader = document.querySelector(".ewok-rater-task-header");
 
     if (
       taskHeader &&
-      taskHeader.textContent.trim() !==
-        "No tasks are currently available. Please try again later."
+      taskHeader.textContent !==
+        "No tasks are currently available.  Please try again later."
     ) {
       // Відкрити нову сторінку
       window.open("https://play.tavr.media/radioroks/", "_blank");
